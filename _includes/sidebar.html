@@ -1,0 +1,36 @@
+<aside id="sidebar" role="complementary">				
+	{% if page.body_class == "my-stuff" %}
+		{% include similar-projects.html %}
+	{% endif %}
+	
+	{% if page.body_class == "blog blog-index" %}
+		{% include tag-list.html %}
+		<a class="archive-link" title="Take me back in time" href="/archive">Blog archive</a>
+	{% endif %}
+
+	{% if page.body_class == "blog blog-entry" %}
+		{% include similar_articles.html %}
+	{% endif %}
+	
+	{% if page.body_class == "blog archive" %}
+		{% include tag-list.html %}
+	{% endif %}
+		
+	{% if page.body_class == "blog tags" %}
+		{% include tag-list.html %}
+		<a class="archive-link" title="Take me back in time" href="/archive">Blog archive</a>
+	{% endif %}
+
+	{% if page.body_class == "archive" %}
+		{% include tag-list.html %}
+	{% endif %}
+
+	{% if page.body_class == "who" %}
+		{% include social-links.html %}
+		{% include recent-work.html %}
+	{% endif %}
+	
+	{% if page.body_class == "contact" %}
+		{% include social-links.html %}
+	{% endif %}
+</aside>

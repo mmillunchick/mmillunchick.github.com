@@ -1,0 +1,11 @@
+<div class="thumb-list">
+	<h3>Similar projects</h3>
+	<ol>
+		{% assign tagname = page.tags[0] %}
+		{% for project in site.tags[tagname] limit:8 %}
+			{% if project.type == 'work' and project.url != page.url %}
+				<li><a href="{{ project.url }}" title="{{ project.title }}"><img src="/assets/images/work/{{ project.thumbnail }}" alt="{{ project.title }}" /></a></li>
+			{% endif %}
+		{% endfor %}
+	</ol>
+</div>

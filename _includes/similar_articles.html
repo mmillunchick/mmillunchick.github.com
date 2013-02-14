@@ -1,0 +1,16 @@
+<div class="tag-list">
+	<h3>Similar articles</h3>
+	<ul>
+		{% assign tagname = page.tags[0] %}
+		{% assign articles = site.tags[tagname] %}
+		{% for article in articles limit:8 %}
+			{% if forloop.length > 1 %}
+				{% if article.type != 'work' and article.url != page.url %}
+					<li><a href="{{ article.url }}" title="{{ article.title }}">{{ article.title }}</a></li>
+				{% endif %}
+			{% else %}
+				<li>No similar articles...</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>

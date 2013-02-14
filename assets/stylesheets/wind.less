@@ -1,0 +1,95 @@
+@import "variables.less";
+@import "mixins.less";
+
+
+/* Styles for the "wind" section of the site */
+
+// set dimensions of the gauges
+#weather-stations > .dimension( @gaugeDiameter, @gaugeBorderWidth, @gaugeBorder, @gaugeArrowHeight, @gaugeArrowWidth, @gaugeArrowOffset, @gaugeFontSize );
+
+
+.weather-stations {
+	margin-top: 2em;
+	.clearfix();
+	
+	> li {
+		float: left;
+		margin: 0 0 0 5%;
+		padding: 0 !important;
+		background-image: none !important;
+		text-align: center;
+
+		&:first-child {
+			margin: 0;
+		}
+
+		h3 {
+			margin: 5px 0 10px;
+			font-size: 1.2em;
+			color: #888;
+			text-transform: uppercase;
+		}
+		
+		a {
+			display: block;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			color: @grayDark;
+			.box-sizing(border-box);
+			
+			ul {
+				position: absolute;
+				margin: 0;
+			}
+			
+			li {
+				padding: 0;
+				background-image: none;
+				
+				&.speed {
+					display: block;
+					position: absolute;
+					z-index: 1010;
+					color: @linkColor;
+					font-size: 12px;
+					line-height: 14px;
+					
+					b {
+						display: block;
+						margin-left: -6px; /* compensate for italic font style */
+						padding: 15px 0 0 0;
+						font-size: 40px;
+						line-height: 40px;
+						font-weight: normal;
+						letter-spacing: -.08em;
+						font-family: georgia;
+						font-style: italic;
+					}
+				}
+
+				&.direction {
+					display: block;
+					position: absolute;
+					z-index: 1000;
+					.transition(all .4s ease-in);
+					
+					.direction-icon {
+						display: block;
+						position: absolute;
+						top: 0;
+						text-indent: -9999em;
+						-webkit-transform-origin: right center;
+					}
+					
+					.degrees {
+						display: none;
+						font-size: 0.9em;
+						color: @grayLight;
+					}
+				}
+			}
+		}
+	}
+}
+

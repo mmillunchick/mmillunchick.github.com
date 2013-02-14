@@ -1,0 +1,70 @@
+---
+body_class: blog blog-entry
+page_title: false
+---
+
+{% include header.html %}
+	<body class="blog blog-entry">
+		<div id="page">
+			{% include page-top.html %}
+
+			<div class="contentwrap">
+				<nav class="sidewinder">
+					<a href="/blog">&larr; View the blog</a>
+				</nav>
+				<div id="content" role="main">
+					{% capture this_year %}{{ page.date | date: "%Y" }}{% endcapture %}
+					{% capture this_month %}{{ page.date | date: "%b" }}{% endcapture %}
+					{% capture this_day %}{{ page.date | date: "%d" }}{% endcapture %}
+
+					<article>
+						<header>
+							<h1 class="article-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+							<ul class="meta">
+								<li class="publish-date">
+									<time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+										<span class="month">{{ this_month }}</span> 
+										<span class="day">{{ this_day }}</span> 
+										<span class="year">{{ this_year }}</span>
+									</time>
+								</li>
+								<li class="tagged-with">
+									<a class="title" href="/tags">Tagged</a> 
+									{% for tag in page.tags %}
+										<a href="/tags/{{ tag }}">{{ tag }}</a>
+									{% endfor %}
+								</li>
+							</ul>
+						</header>
+						<div class="entry">
+						  {{ content }}
+						</div>
+					</article>
+					
+					<div class="comments">
+						<script>
+						var idcomments_acct = 'd89f6064549fb8b3922b62fbf8db5ba8';
+						var idcomments_post_id;
+						var idcomments_post_url;
+						</script>
+						<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+						<script>
+						var idcomments_acct = 'd89f6064549fb8b3922b62fbf8db5ba8';
+						var idcomments_post_id;
+						var idcomments_post_url;
+						</script>
+						<span id="IDCommentsPostTitle" style="display:none"></span>
+						<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+					</div>
+					
+				</div>
+
+				{% include sidebar.html %}
+			</div>
+			{% include footer.html %}
+		</div>
+		{% include tracking.html %}
+	</body>
+</html>
+ 

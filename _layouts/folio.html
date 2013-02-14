@@ -1,0 +1,29 @@
+{% include header.html %}
+	<body class="my-stuff folio-index">
+		<div id="page">
+			{% include page-top.html %}
+			<div class="contentwrap">
+				<h1 class="page-title">{{ page.title }}</h1>
+				<aside id="sidebar">
+					<div id="filter-options">
+						<h4>Sort by:</h4>
+						<ul>
+							<li class="active"><a class="all">All</a></li>
+							<li><a class="webdesign">Web</a></li>
+							<li><a class="artwork">Artwork</a></li>
+							<li><a class="printdesign">Print</a></li>
+							<li><a class="sketches">Sketches</a></li>
+						</ul>
+					</div>
+				</aside>
+				
+				<div id="content" role="main">
+					{{ content }}
+				</div>
+			</div>
+		
+			{% include footer.html %}
+		</div>
+		{% include tracking.html %}
+	</body>
+</html>

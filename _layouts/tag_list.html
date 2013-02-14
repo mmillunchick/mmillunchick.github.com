@@ -1,0 +1,30 @@
+---
+layout: default
+body_class: blog tags
+title: Blog tags
+---
+
+<div class="article-list">
+{% for tag in site.tags %}
+	{% assign is_blog_tag = false %}
+	{% for post in tag[1] %}
+		{% if post.type != "work" %}{% assign is_blog_tag = true %}{% endif %}
+	{% endfor %}
+	
+	{% if is_blog_tag == true %}
+		<h2>{{ tag[0] }}</h2>
+		<ul>
+		{% for post in tag[1] %}
+			<li>
+				<a href="{{ post.url }}">
+					<span class="title">{{ post.title }}</span>
+					<span class="date">{{ post.date | date_to_string }}</span>
+					<span class="url">{{ post.url }}</span>
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+{% endfor %}
+</div>
+

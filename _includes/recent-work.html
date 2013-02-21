@@ -1,9 +1,0 @@
-<div class="thumb-list">
-	<h3>Recent work</h3>
-	<ol>
-		{% for project in site.categories.my-stuff do limit:8 %}
-			<li><a href="{{ project.url }}" title="{{ project.title }}"><img src="/assets/images/work/{{ project.thumbnail }}" alt="{{ project.title }}" /></a></li>
-		{% endfor %}
-	</ol>
-	<a class="view-all" href="/my-stuff">View all of my work &raquo;</a>
-</div>
